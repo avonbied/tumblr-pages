@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{Title}</title>
+
+  <style>
+    header {
+      background: url(http://dash.ga.co/assets/gene-bg.png);
+    }
+
+      header a {
+        text-decoration: none;
+        color: #fff;
+      }
+
+    h1 {
+      display: inline;
+      position: absolute;
+      top: 60px;
+      font-size: 42px;
+      color: #fff;
+    }
+
+    h2 {
+      display: inline;
+      color: #fff;
+      position: absolute;
+      top: 120px;
+      font-size: 20px;
+    }
+
+    body {
+      background: #eee;
+      font-family: sans-serif;
+    }
+
+    .post {
+      background: #fff;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 6px;
+      width: 640px;
+    }
+
+    .avatar {
+      margin: 60px 30px;
+      border-radius: 100%;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .like-reblog {
+      list-style: none;
+      border: 1px solid #ccc;
+    }
+
+      .like-reblog li {
+        float: right;
+        padding: 6px;
+        height: 20px;
+      }
+
+    .page {
+      background: #222;
+      padding: 20px;
+    }
+
+      .page a {
+        text-decoration: none;
+        color: #eee;
+      }
+
+    .pagelist {
+      margin: 0 auto;
+      width: 640px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <img class="avatar" src="{PortraitURL-128}">
+    <h1><a href="{BlogURL}">{Title}</a></h1>
+    {block:Description}
+    <h2>{Description}</h2>
+    {/block:Description}
+  </div>
+  {block:HasPages}
+  <div class="page">
+    {block:Pages}
+    <div class="pagelist">
+      <a href="{URL}">{Label}</a>
+    </div>
+    {/block:Pages}
+  </div>
+  {/block:HasPages}
+
+</header>
+
+<main>
+  
+{block:Posts}
+  {block:Audio}
+  <article class="post audio">
+    {AudioPlayer}
+    {block:Caption}{Caption}{/block:Caption}
+    <ul class="like-reblog">
+      <li>{LikeButton}</li>
+      <li>{ReblogButton}</li>
+      <li>
+        {block:NoteCount}
+        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
+        {/block:NoteCount}
+      </li>
+      <li>
+        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
+      </li>
+    </ul>
+  </article>
+  {block:PostNotes}{PostNotes}{/block:PostNotes}
+  {/block:Audio}
+  
+  {block:Chat}
+  <article class="post chat">
+    {block:Title}{Title}{/block:Title}
+    <table>
+      {block:Lines}
+      <tr>
+        <th>{block:Label}{Label}{/block:Label}</th>
+        <td>{Line}</td>
+      </tr>
+      {/block:Lines}
+    </table>
+    <ul class="like-reblog">
+      <li>{LikeButton}</li>
+      <li>{ReblogButton}</li>
+      <li>
+        {block:NoteCount}
+        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
+        {/block:NoteCount}
+      </li>
+      <li>
+        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
+      </li>
+    </ul>
+  </article>
+  {block:PostNotes}{PostNotes}{/block:PostNotes}
+  {/block:Chat}
+
+  {block:Link}
+  <article class="post link">
+    <a href="{URL}" {Target}>{Name}</a>
+    {block:Description}{Description}{/block:Description}
+    <ul class="like-reblog">
+      <li>{LikeButton}</li>
+      <li>{ReblogButton}</li>
+      <li>
+        {block:NoteCount}
+        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
+        {/block:NoteCount}
+      </li>
+      <li>
+        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
+      </li>
+    </ul>
+  </article>
+  {block:PostNotes}{PostNotes}{/block:PostNotes}
+  {/block:Link}
+
+  {block:Photo}
+  <article class="post photo">
+    <img src="{PhotoURL-500}">
+    {block:Caption}{Caption}{/block:Caption}
+    <ul class="like-reblog">
+      <li>{LikeButton}</li>
+      <li>{ReblogButton}</li>
+      <li>
+        {block:NoteCount}
+        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
+        {/block:NoteCount}
+      </li>
+      <li>
+        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
+      </li>
+    </ul>
+  </article>
+  {block:PostNotes}{PostNotes}{/block:PostNotes}
+  {/block:Photo}
+
+  {block:Quote}
+  <article class="post quote">
+    {Quote}
+    {block:Source}<br>&mdash;{Source}{/block:Source}
+    <ul class="like-reblog">
+      <li>{LikeButton}</li>
+      <li>{ReblogButton}</li>
+      <li>
+        {block:NoteCount}
+        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
+        {/block:NoteCount}
+      </li>
+      <li>
+        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
+      </li>
+    </ul>
+  </article>
+  {block:PostNotes}{PostNotes}{/block:PostNotes}
+  {/block:Quote}
+
+  {block:Text}
+  <article class="post text">
+    {block:Title}
+    <h3>
+      <a href="{Permalink}">{Title}</a>
+    </h3>
+    {/block:Title}
+    {Body}
+    <ul class="like-reblog">
+      <li>{LikeButton}</li>
+      <li>{ReblogButton}</li>
+      <li>
+        {block:NoteCount}
+        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
+        {/block:NoteCount}
+      </li>
+      <li>
+        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
+      </li>
+    </ul>
+  </article>
+  {block:PostNotes}{PostNotes}{/block:PostNotes}
+  {/block:Text}
+
+  {block:Video}
+  <article class="post video">
+    {Video-500}
+    {block:Caption}{Caption}{/block:Caption}
+    <ul class="like-reblog">
+      <li>{LikeButton}</li>
+      <li>{ReblogButton}</li>
+      <li>
+        {block:NoteCount}
+        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
+        {/block:NoteCount}
+      </li>
+      <li>
+        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
+      </li>
+    </ul>
+  </article>
+  {block:PostNotes}{PostNotes}{/block:PostNotes}
+  {/block:Video}
+
+  {/block:Posts}
+</main>
+<footer>
+  {block:Pagination}
+  <div class="pagenav">
+    {block:PreviousPage}<a href="{PreviousPage}">Previous</a>{/block:PreviousPage}
+    {block:NextPage}<a href="{NextPage}">Next</a>{/block:NextPage}
+  </div>
+  {/block:Pagination}
+</footer>
+
+</body>
+</html>

@@ -1,1 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<blog id="lexvonbon">
+  <page id="main">
+    <header>
+      <title></title>
+      <description></description>
+      
+    </header>
+    <content>
+      <article />
+      <article />
+      <pagination />
+    </content>
+    <footer>
+      <quick-links />
+      <copyright />
+    </footer>
+  </page>
+</blog>

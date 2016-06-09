@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lte-ie8"> <![endif]-->
 <!--[if IE 7 ]> <html lang="en" class="no-js ie7 lte-ie8"> <![endif]-->
 <!--[if IE 8 ]> <html lang="en" class="no-js ie8 lte-ie8"> <![endif]-->
@@ -588,24 +588,24 @@
 
           {/block:Photoset}
 
-          {block:Quote}
+          <{block:Quote}>
             <div class="colored-panel">
               <blockquote class="quote-text">{Quote}</blockquote>
             </div>
             <div class="post-panel">
               <div class="quote-nipple"></div>
               {block:Source}<div class="copy">{Source}</div>{/block:Source}
-          {/block:Quote}
+          </{block:Quote}>
 
-          {block:Link}
+          <{block:Link}>
             <div class="post-panel">
               <div class="copy">
                 <h2 class="post-title"><a href="{URL}" {Target}>{Name}<span class="icon"></span></a></h2>
                 {block:Description}{Description}{/block:Description}
               </div>
-          {/block:Link}
+          </{block:Link}>
 
-          {block:Chat}
+          <{block:Chat}>
             <div class="post-panel">
               <div class="copy">
                 {block:Title}
@@ -622,23 +622,23 @@
                   {/block:Lines}
                 </ul>
               </div>
-          {/block:Chat}
+          </{block:Chat}>
 
-          {block:Video}
+          <{block:Video}>
             <div class="post-panel">
               <div class="media loading">
                 {Video-500}
               </div>
               {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
-          {/block:Video}
+          </{block:Video}>
 
-          {block:Audio}
+          <{block:Audio}>
             {block:AudioEmbed}<div class="spotify">{AudioEmbed-500}</div>{/block:AudioEmbed}
             <div class="post-panel">
               {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
-          {/block:Audio}
+          </{block:Audio}>
 
-          {block:Answer}
+          <{block:Answer}>
                         <div id="post-{PostID}" class="post type-answer">
               <div class="colored-panel">
                 <h2 class="user-question"><span>Q:</span>{Question}</h2>
@@ -651,15 +651,15 @@
                   </div>
                   <div class="answer">{Answer}</div>
                 </div>
-          {/block:Answer}
+          </{block:Answer}>
 
-          {block:ContentSource}
+          <{block:ContentSource}>
             <div class="copy source">
               <p>{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a></p>
             </div>
-          {/block:ContentSource}
+          </{block:ContentSource}>
 
-          {block:Date}
+          <{block:Date}>
             <div class="meta">
               <ul class="meta-list">
 
@@ -707,7 +707,7 @@
                 </div>
               </div>
             </div><!-- /.meta -->
-          {/block:Date}
+          </{block:Date}>
 
           {block:PermalinkPage}
             {block:NoteCount}
@@ -967,7 +967,7 @@
   </div><!-- /#page -->
 
   <!-- Footer Scripts -->
-
+  <!--
   <script>
     function recent_tweets(data){window.tweet_data=data;}
   </script>
@@ -1023,5 +1023,6 @@
         (isCustomize || isDemo) && ((document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(pxu));
     })();
     </script>
+    -->
 </body>
 </html>
