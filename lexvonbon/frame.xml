@@ -2,18 +2,32 @@
 <blog id="lexvonbon">
   <page id="main">
     <header>
-      <title></title>
-      <description></description>
-      
+      <title />
+      <description />
     </header>
     <content>
       <article />
       <article />
-      <pagination />
     </content>
     <footer>
+      <pagination />
       <quick-links />
       <copyright />
     </footer>
+  </page>
+  <page id="ask">
+    <header/>
+    <content>
+      <ask-question>
+        <userID/>
+        <question/>
+      </ask-question>
+      <sort-by/>
+      <q-a-list>
+        <question/>
+        <answers/>
+      </q-a-list>
+    </content>
+    <footer/>
   </page>
 </blog>
