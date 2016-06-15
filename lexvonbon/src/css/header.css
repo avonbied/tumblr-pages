@@ -1,2 +1,14 @@
-﻿body {
+﻿.horiz-navlist {
+  margin: 0 auto;
+  list-style: none;
+  width: 100%;
+}
+
+.page {
+	background: #222;
+	padding: 20px;
+}
+.page a {
+	text-decoration: none;
+	color: #eee;
 }

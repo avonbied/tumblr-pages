@@ -1,269 +1,213 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{Title}</title>
-
-  <style>
-    header {
-      background: url(http://dash.ga.co/assets/gene-bg.png);
-    }
-
-      header a {
-        text-decoration: none;
-        color: #fff;
-      }
-
-    h1 {
-      display: inline;
-      position: absolute;
-      top: 60px;
-      font-size: 42px;
-      color: #fff;
-    }
-
-    h2 {
-      display: inline;
-      color: #fff;
-      position: absolute;
-      top: 120px;
-      font-size: 20px;
-    }
-
-    body {
-      background: #eee;
-      font-family: sans-serif;
-    }
-
-    .post {
-      background: #fff;
-      margin: 40px auto;
-      padding: 20px;
-      border-radius: 6px;
-      width: 640px;
-    }
-
-    .avatar {
-      margin: 60px 30px;
-      border-radius: 100%;
-    }
-
-    .container {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .like-reblog {
-      list-style: none;
-      border: 1px solid #ccc;
-    }
-
-      .like-reblog li {
-        float: right;
-        padding: 6px;
-        height: 20px;
-      }
-
-    .page {
-      background: #222;
-      padding: 20px;
-    }
-
-      .page a {
-        text-decoration: none;
-        color: #eee;
-      }
-
-    .pagelist {
-      margin: 0 auto;
-      width: 640px;
-    }
-  </style>
+  <title></title>
+  <meta charset="utf-8" />
 </head>
 <body>
-<header>
-  <div class="container">
-    <img class="avatar" src="{PortraitURL-128}">
-    <h1><a href="{BlogURL}">{Title}</a></h1>
-    {block:Description}
-    <h2>{Description}</h2>
-    {/block:Description}
-  </div>
-  {block:HasPages}
-  <div class="page">
-    {block:Pages}
-    <div class="pagelist">
-      <a href="{URL}">{Label}</a>
-    </div>
-    {/block:Pages}
-  </div>
-  {/block:HasPages}
-
-</header>
-
+<header></header>
 <main>
-  
-{block:Posts}
-  {block:Audio}
-  <article class="post audio">
-    {AudioPlayer}
-    {block:Caption}{Caption}{/block:Caption}
-    <ul class="like-reblog">
-      <li>{LikeButton}</li>
-      <li>{ReblogButton}</li>
-      <li>
-        {block:NoteCount}
-        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
-        {/block:NoteCount}
-      </li>
-      <li>
-        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
-      </li>
-    </ul>
-  </article>
-  {block:PostNotes}{PostNotes}{/block:PostNotes}
-  {/block:Audio}
-  
-  {block:Chat}
-  <article class="post chat">
-    {block:Title}{Title}{/block:Title}
-    <table>
-      {block:Lines}
-      <tr>
-        <th>{block:Label}{Label}{/block:Label}</th>
-        <td>{Line}</td>
-      </tr>
-      {/block:Lines}
-    </table>
-    <ul class="like-reblog">
-      <li>{LikeButton}</li>
-      <li>{ReblogButton}</li>
-      <li>
-        {block:NoteCount}
-        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
-        {/block:NoteCount}
-      </li>
-      <li>
-        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
-      </li>
-    </ul>
-  </article>
-  {block:PostNotes}{PostNotes}{/block:PostNotes}
-  {/block:Chat}
+  <div class="column">
+    {block:Posts}{block:Odd}
 
-  {block:Link}
-  <article class="post link">
-    <a href="{URL}" {Target}>{Name}</a>
-    {block:Description}{Description}{/block:Description}
-    <ul class="like-reblog">
-      <li>{LikeButton}</li>
-      <li>{ReblogButton}</li>
-      <li>
-        {block:NoteCount}
-        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
-        {/block:NoteCount}
-      </li>
-      <li>
-        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
-      </li>
-    </ul>
-  </article>
-  {block:PostNotes}{PostNotes}{/block:PostNotes}
-  {/block:Link}
+    <article id="post-{postID}" class="post
+       {block:Audio}type-audio {/block:Audio}
+       {block:Chat}type-chat {/block:Chat}
+       {block:Link}type-link {/block:Link}
+       {block:Photo}type-photo {/block:Photo}
+       {block:Quote}type-quote {/block:Quote}
+       {block:Text}type-text {/block:Text}
+       {block:Video}type-video {/block:Video}">
 
-  {block:Photo}
-  <article class="post photo">
-    <img src="{PhotoURL-500}">
-    {block:Caption}{Caption}{/block:Caption}
-    <ul class="like-reblog">
-      <li>{LikeButton}</li>
-      <li>{ReblogButton}</li>
-      <li>
-        {block:NoteCount}
-        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
-        {/block:NoteCount}
-      </li>
-      <li>
-        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
-      </li>
-    </ul>
-  </article>
-  {block:PostNotes}{PostNotes}{/block:PostNotes}
-  {/block:Photo}
+      {block:Text}
+      <div class="post-panel">
+        <div class="copy">
+          {block:Title}<h2 class="post-title">{Title}</h2>{/block:Title}
+          {Body}
+        </div>
+      </div>
+      {/block:Text}
 
-  {block:Quote}
-  <article class="post quote">
-    {Quote}
-    {block:Source}<br>&mdash;{Source}{/block:Source}
-    <ul class="like-reblog">
-      <li>{LikeButton}</li>
-      <li>{ReblogButton}</li>
-      <li>
-        {block:NoteCount}
-        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
-        {/block:NoteCount}
-      </li>
-      <li>
-        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
-      </li>
-    </ul>
-  </article>
-  {block:PostNotes}{PostNotes}{/block:PostNotes}
-  {/block:Quote}
+      {block:Photo}
+      <div class="post-panel">
+        <div class="media">
+          <div class="photo-panel">
+            {block:IfContentWidth500}
+            {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}
+            {/block:IfContentWidth500}
+            {block:IfNotContentWidth500}
+            {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}
+            {/block:IfNotContentWidth500}
+            <div class="photo-btns">
+              {block:HighRes}{/block:IfNotContentWidth500}
+              <a class="lightbox" href="{PhotoURL-HighRes}">Pop-up</a>
+              {/block:HighRes}
+              <a class="photo-url" href="{PhotoURL-HighRes}">View Separately</a>
+            </div>
+          </div>
+        </div>
+        {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+      </div>
+      {/block:Photo}
 
-  {block:Text}
-  <article class="post text">
-    {block:Title}
-    <h3>
-      <a href="{Permalink}">{Title}</a>
-    </h3>
-    {/block:Title}
-    {Body}
-    <ul class="like-reblog">
-      <li>{LikeButton}</li>
-      <li>{ReblogButton}</li>
-      <li>
-        {block:NoteCount}
-        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
-        {/block:NoteCount}
-      </li>
-      <li>
-        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
-      </li>
-    </ul>
-  </article>
-  {block:PostNotes}{PostNotes}{/block:PostNotes}
-  {/block:Text}
+      {block:Quote}
+            <div class="colored-panel">
+              <blockquote class="quote-text">{Quote}</blockquote>
+            </div>
+            <div class="post-panel">
+              <div class="quote-nipple"></div>
+              {block:Source}<div class="copy">{Source}</div>{/block:Source}
+            </div>
+       {/block:Quote}
 
-  {block:Video}
-  <article class="post video">
-    {Video-500}
-    {block:Caption}{Caption}{/block:Caption}
-    <ul class="like-reblog">
-      <li>{LikeButton}</li>
-      <li>{ReblogButton}</li>
-      <li>
-        {block:NoteCount}
-        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>
-        {/block:NoteCount}
-      </li>
-      <li>
-        {block:Date}<a href="{Permalink}">{TimeAgo}</a>{/block:Date}
-      </li>
-    </ul>
-  </article>
-  {block:PostNotes}{PostNotes}{/block:PostNotes}
-  {/block:Video}
+       {block:Link}
+            <div class="post-panel">
+              <div class="copy">
+                <h2 class="post-title"><a href="{URL}" {Target}>{Name}<span class="icon"></span></a></h2>
+                {block:Description}{Description}{/block:Description}
+              </div>
+              </div>
+       {/block:Link}
 
-  {/block:Posts}
-</main>
-<footer>
-  {block:Pagination}
-  <div class="pagenav">
-    {block:PreviousPage}<a href="{PreviousPage}">Previous</a>{/block:PreviousPage}
-    {block:NextPage}<a href="{NextPage}">Next</a>{/block:NextPage}
+       {block:Chat}
+            <div class="post-panel">
+              <div class="copy">
+                {block:Title}
+                <h2 class="post-title">{Title}</h2>
+                {/block:Title}
+                <ul class="chat">
+                  {block:Lines}
+                  <li class="{Alt} user_{UserNumber}">
+                    {block:Label}
+                    <span class="speaker">{Label}</span>
+                    {/block:Label}
+                    <span class="says">{Line}</span>
+                  </li>
+                  {/block:Lines}
+                </ul>
+              </div>
+              </div>
+        {/block:Chat}
+
+        {block:Video}
+            <div class="post-panel">
+              <div class="media loading">
+                {Video-500}
+              </div>
+              {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+              </div>
+         {/block:Video}
+
+         {block:Audio}
+            {block:AudioEmbed}<div class="spotify">{AudioEmbed-500}</div>{/block:AudioEmbed}
+            <div class="post-panel">
+              {block:Caption}<div class="copy">{Caption}</div>{/block:Caption}
+              </div>
+         {/block:Audio}
+
+ 
+          {block:Date}
+            <div class="meta">
+              <ul class="meta-list">
+
+                {block:HasTags}
+                <li class="tags">
+                  <ul class="tag-list">
+                    {block:Tags}
+                    <li><a href="{TagURL}">#{Tag}</a></li>
+                    {/block:Tags}
+                  </ul>
+                </li>
+                {/block:HasTags}
+
+                {block:IfShowGroupBlogInfo}
+                <li class="post-author"><img alt="{PostAuthorName} Avatar" src="{PostAuthorPortraitURL-16}"> Posted by <a href="{PostAuthorURL}">{PostAuthorName}</a></li>{/block:IfShowGroupBlogInfo}
+
+                <li class="date{block:RebloggedFrom}-reblogged{/block:RebloggedFrom}">
+                  <a href="{Permalink}" title="{ShortDayOfWeek}. {Month} {DayOfMonth}, {Year} @ {12Hour}:{Minutes} {AmPm}">
+                    <span class="icon"></span>{TimeAgo}
+                  </a>
+                  {block:RebloggedFrom} <em>&gt;</em> <a class="reblogged-from" href="{ReblogRootURL}" title="{ReblogRootTitle}">{ReblogRootName}</a>{/block:RebloggedFrom}
+                </li>
+
+                {block:NoteCount}
+                <li class="notes"><a href="{Permalink}#notes"><span class="icon"></span>{NoteCount}</a></li>{/block:NoteCount}
+
+                {block:IfDisqusShortname}
+                <li class="comments hidden">
+                  <a id="dsq-{PostID}" href="{Permalink}#disqus_thread">
+                    <span class="icon"></span>Comments
+                  </a>
+                </li>
+                {/block:IfDisqusShortname}
+
+                <li class="permalink"><a href="{Permalink}"><span class="icon"></span>{lang:Permalink}</a></li>
+
+              </ul><!--/.meta-list -->
+
+              <div class="share">
+                <span class="toggle">Share</span>
+                <div class="widget">
+                  <div class="short-link">
+                    <p>
+                      {lang:Short URL}<br>
+                      <input type="text" readonly="" value="{ShortURL}">
+                    </p>
+                  </div>
+                  <div class="share-links"><a target="_new" href="https://twitter.com/intent/tweet?text={Title}&url={ShortURL}{block:IfTwitterUsername}&via={text:Twitter Username}{/block:IfTwitterUsername}" class="share-twitter">Twitter</a><a target="_new" href="https://www.facebook.com/sharer.php?u={Permalink}{block:Title}&t={Title}{/block:Title}" class="share-facebook">Facebook</a><a target="_new" href="http://pinterest.com/pin/create/button/?url={Permalink}&media=" class="share-pinterest">Pinterest</a><a target="_new" href="https://plus.google.com/share?url={Permalink}" class="share-google">Google+</a></div>
+                </div>
+              </div>
+            </div><!-- /.meta -->
+          {block:Date}
+
+          {block:PermalinkPage}
+          {block:NoteCount}
+          <div id="notes">
+            <h2>
+              {NoteCount} Notes<span class="sep">/</span>
+              <a id="notes-toggle" href="#"><span class="label">Hide</span><span class="icon up"></span></a>
+            </h2>
+            {PostNotes}
+          </div><!-- /.notes -->
+          {/block:NoteCount}
+
+          {block:Date}
+          {block:IfDisqusShortname}
+          <!-- DISQUS COMMENTS -->
+          <div id="disqus">
+            <h2>{lang:Recent comments}</h2>
+            <script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title = "{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_identifier = { PostID };
+              (function () {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqusShortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:DisqusShortname}">comments powered by Disqus.</a></noscript>
+            {lang:Blog comments powered by Disqus 2}
+          </div><!-- /#disqus -->
+          {/block:IfDisqusShortname}
+          {/block:Date}
+          {/block:PermalinkPage}
+
+        <!-- /.post-panel -->
+        <div class="post-shadow"></div>
+    </article>
+    <!-- /.post -->
+    {/block:Odd}
   </div>
-  {/block:Pagination}
-</footer>
+  <div class="column">
+    {block:Even}
 
+    {/block:Even}
+  </div>
+{/block:Posts}
+</main>
+<aside></aside>
+<footer></footer>
 </body>
 </html>
