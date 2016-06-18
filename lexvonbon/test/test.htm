@@ -1912,697 +1912,567 @@
     }
   </style>
 
-  <script>
-    $(document).ready(function() {
-
-        $('#ask_form').parent().parent().children('.post-veil').remove();
-        // remove the veil from ask form post
-    });
-  </script>
 </head>
 <body>
 
+<!-- header -->
+<header>
+
+  {block:IfShowPortrait}
+  <!-- .portrait -->
+  <div class="portrait"><a href="/"><img src="{PortraitURL-128}" alt="{Title}"></a></div>
+  <!--/ .portrait -->
+  <div class="clearfix"></div>
+  {/block:IfShowPortrait}
+
+  {block:IfShowTitle}
+  <h1><a href="/">{Title}</a></h1>
+  {/block:IfShowTitle}
+
+  {block:Description}
+  <p>{Description}</p>
+  {/block:Description}
+
+  <select name="menu-links">
+    <option value="/">Home</option>
+    {block:AskEnabled}<option value="/ask">{AskLabel}</option>{/block:AskEnabled}
+    {block:SubmissionsEnabled}<option value="/submit">{SubmitLabel}</option>{/block:SubmissionsEnabled}
+    <option value="/archive">Archive</option>
+    {block:HasPages}
+    {block:Pages}
+    <option value="{URL}">{Label}</option>
+    {/block:Pages}
+    {/block:HasPages}
+  </select>
+
+  {block:IfShowSearch}
+  <!-- .search-form -->
+  <form action="/search" method="GET" class="search-form">
+    <input type="search" name="q" results="5" placeholder="Search for..." value="{SearchQuery}">
+    <input type="submit" value="Search" class="button">
+  </form>
+  <!--/ .search-form -->
+  {/block:IfShowSearch}
+
+</header>
+<!--/ header -->
+  
+<!-- .content -->
+<main>
+
+  {block:Posts}
+  {block:Text}
+  <article class="post-container">
+      <!-- .post-body -->
+      <div class="post-body">
+
+        <div class="post-veil  ">
+
+          <!-- .media-icons -->
+          <ul class="media-icons style1">
+            <li>
+              <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
+            </li>
+            <li>
+              <a href="#" class="icon reblog">reblog</a>
+            </li>
+            <li>
+              <a href="#" class="notes">{NoteCount}</a>
+            </li>
+          </ul>
+          <!--/ .media-icons -->
+
+        </div>
 
 
-  <!-- .wrapper -->
-  <div class="wrapper">
-    <!-- .sidebar -->
-    <aside class="sidebar top">
-      <!-- .inner -->
-      <div class="inner">
-        <!-- header -->
-        <header>
+        {block:Title}
+        <!-- .title -->
+        <h2 class="title">
+          <a href="{Permalink}">{Title}</a>
+        </h2>
+        <!--/ .title -->
+        {/block:Title}
+        {Body}
+      </div>
+      <!--/ .post-body -->
+      <!-- .post-meta.meta -->
+      <div class="post-meta meta">
+        {block:IfShowDate}
+        Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
+        <ul class="tags">
+          {block:Tags}
+          <li>
+            <a href="{TagURL}">{Tag}</a>
+            {/block:Tags}
+        </ul>
+        {/block:HasTags}
+        {/block:IfShowTags}
+        {block:IfShowNotesCount}
+        {block:IfShowDate} with {/block:IfShowDate}
+        {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
+        <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
+        {/block:IfShowNotesCount}
+      </div>
+      <!--/ .post-meta.meta -->
+    </article><!--/ .post-container -->
+  {/block:Text}
+  {block:Answer}
+  <article class="post-container">
+        <!-- .post-body -->
+        <div class="post-body">
 
-          {block:IfShowPortrait}
-          <!-- .portrait -->
-          <div class="portrait">
-            <a href="/">
-              <img src="{PortraitURL-128}" alt="{Title}">
-            </a>
+          <div class="post-veil  ">
+
+            <!-- .media-icons -->
+            <ul class="media-icons style1">
+              <li>
+                <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
+              </li>
+              <li>
+                <a href="#" class="icon reblog">reblog</a>
+              </li>
+              <li>
+                <a href="#" class="notes">{NoteCount}</a>
+              </li>
+            </ul>
+            <!--/ .media-icons -->
+
           </div>
-          <!--/ .portrait -->
-          <div class="clearfix"></div>
-          {/block:IfShowPortrait}
 
-          {block:IfShowTitle}
-          <h1>
-            <a href="/">{Title}</a>
-          </h1>
-          {/block:IfShowTitle}
+          <!-- .title -->
+          <h2 class="title">
+            <a href="{Permalink}">{Question}</a>
+          </h2>
+          <!--/ .title -->
+          {Answer}
+        </div>
+        <!--/ .post-body -->
+        <!-- .post-meta.meta -->
+        <div class="post-meta meta">
+          {block:IfShowDate}
+          Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
+          <ul class="tags">
+            {block:Tags}
+            <li>
+              <a href="{TagURL}">{Tag}</a>
+              {/block:Tags}
+          </ul>
+          {/block:HasTags}
+          {/block:IfShowTags}
+          {block:IfShowNotesCount}
+          {block:IfShowDate} with {/block:IfShowDate}
+          {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
+          <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
+          {/block:IfShowNotesCount}
+        </div>
+        <!--/ .post-meta.meta -->
+      </article>
+  {/block:Answer}
+  {block:Photo}
+  <article class="post-container">
+        <!-- .post-body -->
+        <div class="post-body">
 
+          <div class="post-veil  transparent">
+
+            <!-- .media-icons -->
+            <ul class="media-icons style1">
+              <li>
+                <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
+              </li>
+              <li>
+                <a href="#" class="icon reblog">reblog</a>
+              </li>
+              <li>
+                <a href="#" class="notes">{NoteCount}</a>
+              </li>
+            </ul>
+            <!--/ .media-icons -->
+
+          </div>
+
+
+          <img src="{PhotoURL-500}" alt="">
+
+          <!-- .caption -->
+          <div class="caption">
+            <span>{Caption}</span>
+          </div>
+          <!--/ .caption -->
+        </div>
+        <!--/ .post-body -->
+      </article>
+  {/block:Photo}
+  {block:Photoset}
+  <article class="post-container">
+        <!-- .post-body -->
+        <div class="post-body">
+
+          <div class="post-veil  transparent">
+
+            <!-- .media-icons -->
+            <ul class="media-icons style1">
+              <li>
+                <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
+              </li>
+              <li>
+                <a href="#" class="icon reblog">reblog</a>
+              </li>
+              <li>
+                <a href="#" class="notes">{NoteCount}</a>
+              </li>
+            </ul>
+            <!--/ .media-icons -->
+
+          </div>
+
+
+          <ul class="photos">
+            {block:Photos}
+            <li>
+              <img src="{PhotoURL-500}" alt=""></a>
+              {/block:Photos}
+          </ul>
+          <!-- .caption -->
+          <div class="caption">
+            <span>{Caption}</span>
+          </div>
+          <!--/ .caption -->
+        </div>
+        <!--/ .post-body -->
+        <!-- .post-meta.meta -->
+        <div class="post-meta meta">
+          {block:IfShowDate}
+          Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
+          <ul class="tags">
+            {block:Tags}
+            <li>
+              <a href="{TagURL}">{Tag}</a>
+              {/block:Tags}
+          </ul>
+          {/block:HasTags}
+          {/block:IfShowTags}
+          {block:IfShowNotesCount}
+          {block:IfShowDate} with {/block:IfShowDate}
+          {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
+          <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
+          {/block:IfShowNotesCount}
+        </div>
+        <!--/ .post-meta.meta -->
+      </article>
+  {/block:Photoset}
+  {block:Quote}
+  <article class="post-container">
+        <!-- .post-body -->
+        <div class="post-body">
+
+          <div class="post-veil  ">
+
+            <!-- .media-icons -->
+            <ul class="media-icons style1">
+              <li>
+                <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
+              </li>
+              <li>
+                <a href="#" class="icon reblog">reblog</a>
+              </li>
+              <li>
+                <a href="#" class="notes">{NoteCount}</a>
+              </li>
+            </ul>
+            <!--/ .media-icons -->
+
+          </div>
+
+
+          <blockquote>
+            <p>
+              "{Quote}"
+            </p>
+          </blockquote>
+          {block:Source}
+          <cite>{Source}</cite>
+          {/block:Source}
+        </div>
+        <!--/ .post-body -->
+        <!-- .post-meta.meta -->
+        <div class="post-meta meta">
+          {block:IfShowDate}
+          Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
+          <ul class="tags">
+            {block:Tags}
+            <li>
+              <a href="{TagURL}">{Tag}</a>
+              {/block:Tags}
+          </ul>
+          {/block:HasTags}
+          {/block:IfShowTags}
+          {block:IfShowNotesCount}
+          {block:IfShowDate} with {/block:IfShowDate}
+          {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
+          <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
+          {/block:IfShowNotesCount}
+        </div>
+        <!--/ .post-meta.meta -->
+      </article>
+  {/block:Quote}
+  {block:Link}
+  <article class="post-container">
+        <!-- .post-body -->
+        <div class="post-body">
+
+          <div class="post-veil  ">
+
+            <!-- .media-icons -->
+            <ul class="media-icons style1">
+              <li>
+                <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
+              </li>
+              <li>
+                <a href="#" class="icon reblog">reblog</a>
+              </li>
+              <li>
+                <a href="#" class="notes">{NoteCount}</a>
+              </li>
+            </ul>
+            <!--/ .media-icons -->
+
+          </div>
+
+          <!-- .title -->
+          <h2 class="title">
+            <a href="{URL}" {Target}>{Name} <span class="pull-right">→</span></a>
+          </h2>
+          <!--/ .title -->
           {block:Description}
-          <p>{Description}</p>
+          <p>
+            {Description}
+          </p>
           {/block:Description}
+        </div>
+        <!--/ .post-body -->
+        <!-- .post-meta.meta -->
+        <div class="post-meta meta">
+          {block:IfShowDate}
+          Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
+          <ul class="tags">
+            {block:Tags}
+            <li>
+              <a href="{TagURL}">{Tag}</a>
+              {/block:Tags}
+          </ul>
+          {/block:HasTags}
+          {/block:IfShowTags}
+          {block:IfShowNotesCount}
+          {block:IfShowDate} with {/block:IfShowDate}
+          {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
+          <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
+          {/block:IfShowNotesCount}
+        </div>
+        <!--/ .post-meta.meta -->
+      </article>
+  {/block:Link}
+  {block:Chat}
+  <article class="post-container">
+        <!-- .post-body -->
+        <div class="post-body">
+
+          <div class="post-veil  ">
+
+            <!-- .media-icons -->
+            <ul class="media-icons style1">
+              <li>
+                <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
+              </li>
+              <li>
+                <a href="#" class="icon reblog">reblog</a>
+              </li>
+              <li>
+                <a href="#" class="notes">{NoteCount}</a>
+              </li>
+            </ul>
+            <!--/ .media-icons -->
+
+          </div>
+
+          {block:Title}
+          <!-- .title -->
+          <h2 class="title">
+            <a href="{Permalink}">{Title}</a>
+          </h2>
+          <!--/ .title -->
+          {/block:Title}
+          <!-- .conversation -->
+          <ul class="conversation">
+            {block:Lines}
+            <li class="line_{Alt}">
+              {block:Label}<strong>{Label}</strong>   {block:Label}
+              {Line}
+            </li>
+            {/block:Lines}
+          </ul>
+          <!--/ .conversation -->
+        </div>
+        <!--/ .post-body -->
+        <!-- .post-meta.meta -->
+        <div class="post-meta meta">
+          {block:IfShowDate}
+          Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
+          <ul class="tags">
+            {block:Tags}
+            <li>
+              <a href="{TagURL}">{Tag}</a>
+              {/block:Tags}
+          </ul>
+          {/block:HasTags}
+          {/block:IfShowTags}
+          {block:IfShowNotesCount}
+          {block:IfShowDate} with {/block:IfShowDate}
+          {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
+          <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
+          {/block:IfShowNotesCount}
+        </div>
+        <!--/ .post-meta.meta -->
+      </article>
+  {/block:Chat}
+  {block:Video}
+  <article class="post-container">
+        <!-- .post-body -->
+        <div class="post-body">
+          <div class="post-veil  transparent">
+            <!-- .media-icons -->
+            <ul class="media-icons style1">
+              <li>
+                <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
+              </li>
+              <li><a href="#" class="icon reblog">reblog</a></li>
+              <li><a href="#" class="notes">{NoteCount}</a></li>
+            </ul>
+            <!--/ .media-icons -->
+          </div>
 
 
-          <select name="menu-links" onchange="javascript:parent.location=this.options[this.selectedIndex].value;">
-            <option value="/">Home</option>
-            {block:AskEnabled}
-            <option value="/ask">{AskLabel}</option>{/block:AskEnabled}
-            {block:SubmissionsEnabled}
-            <option value="/submit">{SubmitLabel}</option>{/block:SubmissionsEnabled}
-            <option value="/archive">Archive</option>
-            {block:HasPages}
-            {block:Pages}
-            <option value="{URL}">{Label}</option>
-            {/block:Pages}
-            {/block:HasPages}
-          </select>
-        </header>
-        <!--/ header -->
-        {block:IfShowSearch}
-        <!-- .search-form -->
-        <form action="/search" method="GET" class="search-form">
-          <input type="search" name="q" results="5" placeholder="Search for..." value="{SearchQuery}">
-          <input type="submit" value="Search" class="button">
-        </form>
-        <!--/ .search-form -->
-        {/block:IfShowSearch}
+          {VideoEmbed-700}
+          {block:AudioEmbed}{AudioEmbed}{/block:AudioEmbed}
+          <!-- .media-icons -->
+          <ul class="media-icons style1">
+            <li>
+              <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">Like</a>
+            </li>
+            <li><a href="{ReblogURL}" class="icon reblog">Reblog</a></li>
+            <li><a href="#" class="notes">{NoteCount}</a></li>
+          </ul>
+          <!--/ .media-icons -->
+        </div>
+        <!--/ .post-body -->
+        <!-- .post-meta.meta -->
+        <div class="post-meta meta">
+          {block:IfShowDate}
+          Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}
+          {block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
+          <ul class="tags">{block:Tags}<li><a href="{TagURL}">{Tag}</a>{/block:Tags}</ul>
+          {/block:HasTags}
+          {/block:IfShowTags}
+          {block:IfShowNotesCount}
+          {block:IfShowDate} with {/block:IfShowDate}
+          {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
+          <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
+          {/block:IfShowNotesCount}
+        </div>
+        <!--/ .post-meta.meta -->
+      </article>
+  {/block:Video}
+  {block:Audio}
+  <article class="post-container">
+        <!-- .post-body -->
+        <div class="post-body">
 
-        <!-- Insert any sidebar stuff here -->
+          <div class="post-veil">
 
-        <footer>
-          <small class="meta">
-            <a href="http://themesltd.com/tumblr-generator" class="underlined">Tumblr Theme Generator</a>
-          </small>
-        </footer>
-      </div>
-      <!--/ .inner -->
-    </aside>
-    <!--/ .sidebar -->
-    <!-- .content -->
-    <div class="content">
-      <!-- .inner -->
-      <div class="inner">
-        <!-- .posts -->
-        <ol class="posts masonry two-col">
-          {block:Posts}
-          {block:Text}
-          <!-- .post.text -->
-          <li class="post text masonry-item">
-            <!-- .post-container -->
-            <div class="post-container">
-              <!-- .post-body -->
-              <div class="post-body">
+            <!-- .media-icons -->
+            <ul class="media-icons style1">
+              <li>
+                <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
+              </li>
+              <li>
+                <a href="#" class="icon reblog">reblog</a>
+              </li>
+              <li>
+                <a href="#" class="notes">{NoteCount}</a>
+              </li>
+            </ul>
+            <!--/ .media-icons -->
 
-                <div class="post-veil  ">
+          </div>
 
-                  <!-- .media-icons -->
-                  <ul class="media-icons style1">
-                    <li>
-                      <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
-                    </li>
-                    <li>
-                      <a href="#" class="icon reblog">reblog</a>
-                    </li>
-                    <li>
-                      <a href="#" class="notes">{NoteCount}</a>
-                    </li>
-                  </ul>
-                  <!--/ .media-icons -->
+          <!-- .title -->
+          <h2 class="title">
+            <a href="{Permalink}">{block:TrackName}{TrackName}{/block:TrackName} {block:Artist}- {Artist}{/block:Artist} {block:Album}{Album}{/block:Album}</a>
+          </h2>
+          <!--/ .title -->
+          {block:AudioPlayer}<br>{AudioPlayer}{/block:AudioPlayer}
 
-                </div>
+          {block:AudioEmbed}<br>{AudioEmbed}{/block:AudioEmbed}
 
+          {block:Caption}{Caption}{/block:Caption}
+        </div>
+        <!--/ .post-body -->
+        <!-- .post-meta.meta -->
+        <div class="post-meta meta">
+          {block:IfShowDate}
+          Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}
+          {block:IfShowTags}{block:HasTags}
+          {block:IfShowDate}, under {/block:IfShowDate}
+          <ul class="tags">{block:Tags}<li><a href="{TagURL}">{Tag}</a>{/block:Tags}</ul>
+          {/block:HasTags}{/block:IfShowTags}
+          {block:IfShowNotesCount}
+          {block:IfShowDate} with {/block:IfShowDate}
+          {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
+          <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
+          {/block:IfShowNotesCount}
+        </div>
+        <!--/ .post-meta.meta -->
+        <!--/ .post-container -->
+      </article>
+  {/block:Audio}
 
-                {block:Title}
-                <!-- .title -->
-                <h2 class="title">
-                  <a href="{Permalink}">{Title}</a>
-                </h2>
-                <!--/ .title -->
-                {/block:Title}
-                {Body}
-              </div>
-              <!--/ .post-body -->
-              <!-- .post-meta.meta -->
-              <div class="post-meta meta">
-                {block:IfShowDate}
-                Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
-                <ul class="tags">
-                  {block:Tags}
-                  <li>
-                    <a href="{TagURL}">{Tag}</a>
-                    {/block:Tags}
-                </ul>
-                {/block:HasTags}
-                {/block:IfShowTags}
-                {block:IfShowNotesCount}
-                {block:IfShowDate} with {/block:IfShowDate}
-                {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
-                <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
-                {/block:IfShowNotesCount}
-              </div>
-              <!--/ .post-meta.meta -->
-            </div>
-            <!--/ .post-container -->
-          </li>
-          <!--/ .post.text -->
-          {/block:Text}
-          {block:Answer}
-          <!-- .post.text -->
-          <li class="post text masonry-item">
-            <!-- .post-container -->
-            <div class="post-container">
-              <!-- .post-body -->
-              <div class="post-body">
+  {/block:Posts}
 
-                <div class="post-veil  ">
+  
 
-                  <!-- .media-icons -->
-                  <ul class="media-icons style1">
-                    <li>
-                      <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
-                    </li>
-                    <li>
-                      <a href="#" class="icon reblog">reblog</a>
-                    </li>
-                    <li>
-                      <a href="#" class="notes">{NoteCount}</a>
-                    </li>
-                  </ul>
-                  <!--/ .media-icons -->
+</main>
+<!-- /.content -->
 
-                </div>
+<div class="clearfix"></div>
 
-                <!-- .title -->
-                <h2 class="title">
-                  <a href="{Permalink}">{Question}</a>
-                </h2>
-                <!--/ .title -->
-                {Answer}
-              </div>
-              <!--/ .post-body -->
-              <!-- .post-meta.meta -->
-              <div class="post-meta meta">
-                {block:IfShowDate}
-                Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
-                <ul class="tags">
-                  {block:Tags}
-                  <li>
-                    <a href="{TagURL}">{Tag}</a>
-                    {/block:Tags}
-                </ul>
-                {/block:HasTags}
-                {/block:IfShowTags}
-                {block:IfShowNotesCount}
-                {block:IfShowDate} with {/block:IfShowDate}
-                {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
-                <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
-                {/block:IfShowNotesCount}
-              </div>
-              <!--/ .post-meta.meta -->
-            </div>
-            <!--/ .post-container -->
-          </li>
-          <!--/ .post.text -->
-          {/block:Answer}
-          {block:Photo}
-          <!-- .post.photo -->
-          <li class="post photo masonry-item">
-            <!-- .post-container -->
-            <div class="post-container">
-              <!-- .post-body -->
-              <div class="post-body">
+<br><br>
 
-                <div class="post-veil  transparent">
+<!-- footer -->
+<footer>
+{block:Pagination}
+   <!-- .pagination -->
+   <ol class="pagination ">
+   {block:PreviousPage}
+     <li class="previous"><a href="{PreviousPage}">← Previous</a></li>
+   {/block:PreviousPage}
 
-                  <!-- .media-icons -->
-                  <ul class="media-icons style1">
-                    <li>
-                      <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
-                    </li>
-                    <li>
-                      <a href="#" class="icon reblog">reblog</a>
-                    </li>
-                    <li>
-                      <a href="#" class="notes">{NoteCount}</a>
-                    </li>
-                  </ul>
-                  <!--/ .media-icons -->
+   {block:JumpPagination length="5"}
+     {block:CurrentPage}
+     <li class="numbers current">{PageNumber}</li>
+     {/block:CurrentPage}
+     {block:JumpPage}
+     <li class="numbers"><a href="{URL}">{PageNumber}</a></li>
+     {/block:JumpPage}
+   {/block:JumpPagination}
 
-                </div>
+   {block:NextPage}
+     <li class="next"><a href="{NextPage}">Next →</a></li>
+   {/block:NextPage}
+   </ol>
+   <!--/ .pagination -->
+{/block:Pagination}
+</footer>
 
-
-                <img src="{PhotoURL-500}" alt="">
-
-                <!-- .caption -->
-                <div class="caption">
-                  <span>{Caption}</span>
-                </div>
-                <!--/ .caption -->
-              </div>
-              <!--/ .post-body -->
-            </div>
-            <!--/ .post-container -->
-          </li>
-          <!--/ .post.photo -->
-          {/block:Photo}
-          {block:Photoset}
-          <!-- .post.photoset -->
-          <li class="post photoset masonry-item">
-            <!-- .post-container -->
-            <div class="post-container">
-              <!-- .post-body -->
-              <div class="post-body">
-
-                <div class="post-veil  transparent">
-
-                  <!-- .media-icons -->
-                  <ul class="media-icons style1">
-                    <li>
-                      <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
-                    </li>
-                    <li>
-                      <a href="#" class="icon reblog">reblog</a>
-                    </li>
-                    <li>
-                      <a href="#" class="notes">{NoteCount}</a>
-                    </li>
-                  </ul>
-                  <!--/ .media-icons -->
-
-                </div>
-
-
-                <ul class="photos">
-                  {block:Photos}
-                  <li>
-                    <img src="{PhotoURL-500}" alt=""></a>
-                    {/block:Photos}
-                </ul>
-                <!-- .caption -->
-                <div class="caption">
-                  <span>{Caption}</span>
-                </div>
-                <!--/ .caption -->
-              </div>
-              <!--/ .post-body -->
-              <!-- .post-meta.meta -->
-              <div class="post-meta meta">
-                {block:IfShowDate}
-                Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
-                <ul class="tags">
-                  {block:Tags}
-                  <li>
-                    <a href="{TagURL}">{Tag}</a>
-                    {/block:Tags}
-                </ul>
-                {/block:HasTags}
-                {/block:IfShowTags}
-                {block:IfShowNotesCount}
-                {block:IfShowDate} with {/block:IfShowDate}
-                {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
-                <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
-                {/block:IfShowNotesCount}
-              </div>
-              <!--/ .post-meta.meta -->
-            </div>
-            <!--/ .post-container -->
-          </li>
-          <!--/ .post.photoset -->
-          {/block:Photoset}
-          {block:Quote}
-          <!-- .post.quote -->
-          <li class="post quote masonry-item">
-            <!-- .post-container -->
-            <div class="post-container">
-              <!-- .post-body -->
-              <div class="post-body">
-
-                <div class="post-veil  ">
-
-                  <!-- .media-icons -->
-                  <ul class="media-icons style1">
-                    <li>
-                      <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
-                    </li>
-                    <li>
-                      <a href="#" class="icon reblog">reblog</a>
-                    </li>
-                    <li>
-                      <a href="#" class="notes">{NoteCount}</a>
-                    </li>
-                  </ul>
-                  <!--/ .media-icons -->
-
-                </div>
-
-
-                <blockquote>
-                  <p>
-                    "{Quote}"
-                  </p>
-                </blockquote>
-                {block:Source}
-                <cite>{Source}</cite>
-                {/block:Source}
-              </div>
-              <!--/ .post-body -->
-              <!-- .post-meta.meta -->
-              <div class="post-meta meta">
-                {block:IfShowDate}
-                Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
-                <ul class="tags">
-                  {block:Tags}
-                  <li>
-                    <a href="{TagURL}">{Tag}</a>
-                    {/block:Tags}
-                </ul>
-                {/block:HasTags}
-                {/block:IfShowTags}
-                {block:IfShowNotesCount}
-                {block:IfShowDate} with {/block:IfShowDate}
-                {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
-                <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
-                {/block:IfShowNotesCount}
-              </div>
-              <!--/ .post-meta.meta -->
-            </div>
-            <!--/ .post-container -->
-          </li>
-          <!--/ .post.quote -->
-          {/block:Quote}
-          {block:Link}
-          <!-- .post.link -->
-          <li class="post link masonry-item">
-            <!-- .post-container -->
-            <div class="post-container">
-              <!-- .post-body -->
-              <div class="post-body">
-
-                <div class="post-veil  ">
-
-                  <!-- .media-icons -->
-                  <ul class="media-icons style1">
-                    <li>
-                      <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
-                    </li>
-                    <li>
-                      <a href="#" class="icon reblog">reblog</a>
-                    </li>
-                    <li>
-                      <a href="#" class="notes">{NoteCount}</a>
-                    </li>
-                  </ul>
-                  <!--/ .media-icons -->
-
-                </div>
-
-                <!-- .title -->
-                <h2 class="title">
-                  <a href="{URL}" {Target}>{Name} <span class="pull-right">→</span></a>
-                </h2>
-                <!--/ .title -->
-                {block:Description}
-                <p>
-                  {Description}
-                </p>
-                {/block:Description}
-              </div>
-              <!--/ .post-body -->
-              <!-- .post-meta.meta -->
-              <div class="post-meta meta">
-                {block:IfShowDate}
-                Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
-                <ul class="tags">
-                  {block:Tags}
-                  <li>
-                    <a href="{TagURL}">{Tag}</a>
-                    {/block:Tags}
-                </ul>
-                {/block:HasTags}
-                {/block:IfShowTags}
-                {block:IfShowNotesCount}
-                {block:IfShowDate} with {/block:IfShowDate}
-                {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
-                <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
-                {/block:IfShowNotesCount}
-              </div>
-              <!--/ .post-meta.meta -->
-            </div>
-            <!--/ .post-container -->
-          </li>
-          <!--/ .post.link -->
-          {/block:Link}
-          {block:Chat}
-          <!-- .post.chat -->
-          <li class="post chat masonry-item">
-            <!-- .post-container -->
-            <div class="post-container">
-              <!-- .post-body -->
-              <div class="post-body">
-
-                <div class="post-veil  ">
-
-                  <!-- .media-icons -->
-                  <ul class="media-icons style1">
-                    <li>
-                      <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
-                    </li>
-                    <li>
-                      <a href="#" class="icon reblog">reblog</a>
-                    </li>
-                    <li>
-                      <a href="#" class="notes">{NoteCount}</a>
-                    </li>
-                  </ul>
-                  <!--/ .media-icons -->
-
-                </div>
-
-                {block:Title}
-                <!-- .title -->
-                <h2 class="title">
-                  <a href="{Permalink}">{Title}</a>
-                </h2>
-                <!--/ .title -->
-                {/block:Title}
-                <!-- .conversation -->
-                <ul class="conversation">
-                  {block:Lines}
-                  <li class="line_{Alt}">
-                    {block:Label}<strong>{Label}</strong>   {block:Label}
-                    {Line}
-                  </li>
-                  {/block:Lines}
-                </ul>
-                <!--/ .conversation -->
-              </div>
-              <!--/ .post-body -->
-              <!-- .post-meta.meta -->
-              <div class="post-meta meta">
-                {block:IfShowDate}
-                Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
-                <ul class="tags">
-                  {block:Tags}
-                  <li>
-                    <a href="{TagURL}">{Tag}</a>
-                    {/block:Tags}
-                </ul>
-                {/block:HasTags}
-                {/block:IfShowTags}
-                {block:IfShowNotesCount}
-                {block:IfShowDate} with {/block:IfShowDate}
-                {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
-                <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
-                {/block:IfShowNotesCount}
-              </div>
-              <!--/ .post-meta.meta -->
-            </div>
-            <!--/ .post-container -->
-          </li>
-          <!--/ .post.chat -->
-          {/block:Chat}
-          {block:Video}
-          <!-- .post.video -->
-          <li class="post video masonry-item">
-            <!-- .post-container -->
-            <div class="post-container">
-              <!-- .post-body -->
-              <div class="post-body">
-
-                <div class="post-veil  transparent">
-
-                  <!-- .media-icons -->
-                  <ul class="media-icons style1">
-                    <li>
-                      <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
-                    </li>
-                    <li>
-                      <a href="#" class="icon reblog">reblog</a>
-                    </li>
-                    <li>
-                      <a href="#" class="notes">{NoteCount}</a>
-                    </li>
-                  </ul>
-                  <!--/ .media-icons -->
-
-                </div>
-
-
-                {VideoEmbed-700}
-                {block:AudioEmbed}
-                {AudioEmbed}
-                {/block:AudioEmbed}
-                <!-- .media-icons -->
-                <ul class="media-icons style1">
-                  <li>
-                    <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">Like</a>
-                  </li>
-                  <li>
-                    <a href="{ReblogURL}" class="icon reblog">Reblog</a>
-                  </li>
-                  <li>
-                    <a href="#" class="notes">{NoteCount}</a>
-                  </li>
-                </ul>
-                <!--/ .media-icons -->
-              </div>
-              <!--/ .post-body -->
-              <!-- .post-meta.meta -->
-              <div class="post-meta meta">
-                {block:IfShowDate}
-                Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
-                <ul class="tags">
-                  {block:Tags}
-                  <li>
-                    <a href="{TagURL}">{Tag}</a>
-                    {/block:Tags}
-                </ul>
-                {/block:HasTags}
-                {/block:IfShowTags}
-                {block:IfShowNotesCount}
-                {block:IfShowDate} with {/block:IfShowDate}
-                {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
-                <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
-                {/block:IfShowNotesCount}
-              </div>
-              <!--/ .post-meta.meta -->
-            </div>
-            <!--/ .post-container -->
-          </li>
-          <!--/ .post.video -->
-          {/block:Video}
-          {block:Audio}
-          <!-- .post.audio -->
-          <li class="post audio masonry-item">
-            <!-- .post-container -->
-            <div class="post-container">
-              <!-- .post-body -->
-              <div class="post-body">
-
-                <div class="post-veil  ">
-
-                  <!-- .media-icons -->
-                  <ul class="media-icons style1">
-                    <li>
-                      <a href="javascript:likelink('{PostID}','{Permalink}','');" class="icon like">like</a>
-                    </li>
-                    <li>
-                      <a href="#" class="icon reblog">reblog</a>
-                    </li>
-                    <li>
-                      <a href="#" class="notes">{NoteCount}</a>
-                    </li>
-                  </ul>
-                  <!--/ .media-icons -->
-
-                </div>
-
-                <!-- .title -->
-                <h2 class="title">
-                  <a href="{Permalink}">{block:TrackName}{TrackName}{/block:TrackName} {block:Artist}- {Artist}{/block:Artist} {block:Album}{Album}{/block:Album}</a>
-                </h2>
-                <!--/ .title -->
-                {block:AudioPlayer}
-                <br>
-                {AudioPlayer}
-                {/block:AudioPlayer}
-
-                {block:AudioEmbed}
-                <br>
-                {AudioEmbed}
-                {/block:AudioEmbed}
-
-                {block:Caption}
-                {Caption}
-                {/block:Caption}
-              </div>
-              <!--/ .post-body -->
-              <!-- .post-meta.meta -->
-              <div class="post-meta meta">
-                {block:IfShowDate}
-                Posted <a href="{Permalink}" class="subtle">{TimeAgo}</a>{/block:IfShowDate}{block:IfShowTags}{block:HasTags}{block:IfShowDate}, under {/block:IfShowDate}
-                <ul class="tags">
-                  {block:Tags}
-                  <li>
-                    <a href="{TagURL}">{Tag}</a>
-                    {/block:Tags}
-                </ul>
-                {/block:HasTags}
-                {/block:IfShowTags}
-                {block:IfShowNotesCount}
-                {block:IfShowDate} with {/block:IfShowDate}
-                {block:IfNotShowDate}{block:IfShowTags} with {/block:IfShowTags}{/block:IfNotShowDate}
-                <a href="{Permalink}" class="subtle">{NoteCountWithLabel}</a>
-                {/block:IfShowNotesCount}
-              </div>
-              <!--/ .post-meta.meta -->
-              <!--/ .post-container -->
-            </div>
-          </li>
-          <!--/ .post.audio -->
-          {/block:Audio}
-          {/block:Posts}
-        </ol>
-        <!--/ ol.posts -->
-
-        <div class="clearfix"></div>
-
-        <br><br>
-
-
-        {block:Pagination}
-
-        <!-- .pagination -->
-        <ol class="pagination ">
-          {block:PreviousPage}
-          <li class="previous"><a href="{PreviousPage}">← Previous</a></li>
-          {/block:PreviousPage}
-
-          {block:JumpPagination length="5"}
-
-          {block:CurrentPage}
-          <li class="numbers current">{PageNumber}</li>
-          {/block:CurrentPage}
-
-          {block:JumpPage}
-          <li class="numbers"><a href="{URL}">{PageNumber}</a></li>
-          {/block:JumpPage}
-          {/block:JumpPagination}
-
-          {block:NextPage}
-          <li class="next"><a href="{NextPage}">Next →</a></li>
-          {/block:NextPage}
-        </ol>
-        <!--/ .pagination -->				{/block:Pagination}
-
-      </div>
-      <!--/ .inner -->
-    </div>
-    <!--/ .content -->
-  </div>
-  <!--/ .wrapper -->
-
-  <iframe id="likeiframe" style="width: 0px; height: 0px; opacity:0;"></iframe>
-
-
-  <script src="http://ajax.googleapis.org/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.min.js"></script>
-  <script type="text/javascript" src="http://static.tumblr.com/uiqhh9x/UYAm6i0bc/like.js"></script>
-  <script src="https://raw.github.com/paulirish/infinite-scroll/master/jquery.infinitescroll.js"></script>
-
-  <script src="http://www.themesltd.com/assets/js/theme.js"></script>
 
 </body>
 </html>
