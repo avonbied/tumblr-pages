@@ -1,0 +1,30 @@
+﻿body { margin:0; border:none; padding:0; background:#ababab; }
+.post { 
+  margin:40px auto; border:1px solid black; border-radius:3px; padding:4px;
+  max-width:530px; background:#eeeeee;
+}
+.post-head {
+   margin:0; border-bottom:1px solid #ccc; padding:0; overflow:hidden; 
+}
+.post-author * { margin: 1px; float:left } .post-author img { height: 16px;} .post-author p { font-size:16px; line-height:16px;}
+.post-title { margin: 2px; clear:both; text-align:center;}
+.post-date { float: right; line-height:16px;}
+
+.post-foot { margin:0; border-top:1px solid #ccc; padding:0; overflow:hidden; }
+.post-foot > * { margin-left: 8px; padding:3px 4px; display:inline-block; color:#aaa; text-align:center; }
+/*.post-foot #post-date { margin-left:0; float:left; }*/.post-foot #post-notes { float: left; }
+.post-foot a {
+    float: right;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.post-foot a:hover {
+    background-color: #111;
+}
+
+
+
+.post-content {
+  height: 200px;
+}

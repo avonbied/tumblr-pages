@@ -1,14 +1,29 @@
-﻿.horiz-navlist {
-  margin: 0 auto;
-  list-style: none;
-  width: 100%;
-}
+﻿body { margin:0; border:none; padding:0; background:#ababab; color:#eee; font-family:sans-serif; box-sizing:border-box;}
 
-.page {
-	background: #222;
-	padding: 20px;
+#blog-head { margin:0; border:1px solid black; box-sizing:border-box;
+  width:100%; overflow:auto; background:rgba(10,10,20,0.7); 
 }
-.page a {
-	text-decoration: none;
-	color: #eee;
+#blog-avatar {
+  margin:64px;
+  margin-left: 96px;
+  border: 2px solid white;
+  width:128px;
+  height:128px;
+  float:left;
 }
+#blog-head hgroup { margin:64px 10px; border:none; height:130px; display:flex; flex-flow:row wrap; align-content:center;}
+#blog-title {
+  margin: 4px auto;
+  width: 100%;
+  display:block;
+}
+#blog-desc {
+  margin-top: 5px;
+  margin-bottom:16px;
+  display:block;
+}
+#blog-nav { margin-top:10px; border:none; padding:0; display:block; clear:both; text-align:center;}
+#blog-nav a {
+  border:none; padding:10px; display:inline-block; text-align:center;
+  min-width: 100px; height:100%;
+} #blog-nav a:hover { background: rgba(5,5,10,0.8); }

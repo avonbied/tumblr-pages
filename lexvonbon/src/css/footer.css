@@ -1,2 +1,22 @@
-﻿body {
+﻿html, body {height: 100%;}
+body { margin:0; border:none; background:#ababab;}
+#spacer { min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -64px; }
+
+
+#blog-foot { margin:0; border:none; border-radius:1px; padding:0;
+  width:100%; background:#111; overflow:auto; color: #fff;
 }
+.left {margin:0;border:none;padding:0;float:left;}
+
+#foot-logo {
+  margin:2px; border:1px solid white; border-radius: 10px; padding:0; display:inline-block;
+  float:left;
+}
+#foot-links {margin:25px auto 0; display:flex; justify-content:center; }
+#foot-links a { margin:0 16px; border:1px double white; padding:1px; text-decoration:none;}
+#foot-links img { width:32px; height:32px; }
+#foot-copy { margin:25px auto 0; border:none; padding:1px; display:flex; justify-content:center;}
+#foot-copy {border-top:1px solid #444; }
