@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+
+<title>Header Box Model</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="css/header.css" />
+
+
+</head>
+<body>
+
+
+<header id="blog-head"><!--<a href="{BlogURL}">-->
+  <img id="blog-avatar" alt="Avatar / &quot;Portrait&quot;" href="{PortraitURL-128}"/>
+  <hgroup>
+    <h1 id="blog-title">{Title}</h1>
+    <h3 id="blog-desc">Description</h3>
+  </hgroup><!--</a>-->
+  <nav id="blog-nav">
+    <a href="{BlogURL}">Home</a>
+    <!--{block:AskEnabled}--><a href="/ask">{AskLabel}</a><!--{/block:AskEnabled}-->
+    <!--{block:SubmissionsEnabled}--><a href="/submit">{SubmitLabel}</a><!--{/block:SubmissionsEnabled}-->
+    <!--{block:HasPages}{block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}{/block:HasPages}--><a>About</a><a>Contact</a>
+    <a href="/archive">Archive</a>
+  </nav>
+
+</header>
+  
+<script type="text/javascript" src="js/header.js"></script>
+
+
+</body>
+</html>

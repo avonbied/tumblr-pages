@@ -1,10 +1,176 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Form Box Model</title>
+  <title>Form Box Model</title>
 	<meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="../css/form.css" />
 </head>
 <body>
 
+<form class="form">
+  <h1 class="form-title">Contact Us</h1>
+  <p></p>
+
+  <fieldset class="fieldset">
+    <legend>Your Name</legend>
+    
+    <label><input type="text" id="first_name" name="first_name" placeholder="First Name" /><br /><small>First</small></label>
+    <label><input type="text" id="last_name" name="last_name" placeholder="Last Name" /><br /><small>Last</small></label>
+
+  </fieldset>
+  <fieldset class="fieldset">
+    <legend>Contact Info</legend>
+
+    <label><input type="tel" id="telephone" name="telephone" placeholder="(555) 333-2222" /><br /><small>Phone Number</small></label>
+    <label><input type="email" id="email" name="email" placeholder="someone@example.com" /><br /><small>Email</small></label>
+
+  </fieldset>
+  <fieldset class="fieldset align-center">
+    <legend>Your Message</legend>
+    <label><textarea cols="80" name="message" maxlength="200"></textarea><br /><small>Thank You!</small></label>
+  </fieldset>
+</form>
+
+<form class="form">
+  <h1 class="form-title">Payment form</h1>
+  <p>Required fields are followed by <strong><abbr title="required">*</abbr></strong>.</p>
+  <h2>Contact Us</h2>
+    <section>
+      <fieldset class="left flex-field vert">
+        <legend>Title</legend>
+        <label for="title_1"><input type="radio" id="title_1" name="title" value="M." />Mister</label>
+        <label for="title_2"><input type="radio" id="title_2" name="title" value="Ms." />Miss</label>
+
+      </fieldset>
+
+      <fieldset class="flex-field right">
+        <legend>Name</legend>
+        <label>
+          <input type="text" name="firstname" required />
+          <small>First</small><strong><abbr title="required">*</abbr></strong>
+        </label>
+        <label>
+          <input type="text" name="lastname" required />
+          <small>Last</small><strong><abbr title="required">*</abbr></strong>
+        </label>
+      </fieldset>
+
+      <fieldset class="flex-field right">
+        <legend>Contact Info</legend>
+        <label>
+          <input type="email" name="email" required />
+          <small>E-mail</small><strong><abbr title="required">*</abbr></strong>
+        </label>
+        <label>
+          <input type="tel" name="phone" required />
+          <small>Phone Number</small><strong><abbr title="required">*</abbr></strong>
+        </label>
+      </fieldset>
+    </section>
+    <h2>Payment information</h2>
+    <section>
+      <fieldset class="flex-field right">
+        <legend>Card Info</legend>
+        <label>
+          <span>Card type: </span>
+          <br />
+          <select name="usercard">
+            <option value="visa">Visa</option>
+            <option value="mc">Mastercard</option>
+            <option value="amex">American Express</option>
+          </select>
+        </label>
+        <label>
+          <span>Card number: </span><strong><abbr title="required">*</abbr></strong>
+          <br />
+          <input type="text" name="cardnumber" required />
+        </label>
+        <label>
+          <span>Expiration date: </span><strong><abbr title="required">*</abbr></strong><em>formated as mm/yy</em>
+          <br />
+          <input type="text" name="expiration" required />
+          
+        </label>
+      </fieldset>
+    </section>
+
+    <section>
+      <p>
+        <button>Validate the payment</button>
+      </p>
+    </section>
+ 
+</form>
+  <form class="form">
+    <fieldset class="fieldset align-left">
+      <label>
+        <span>Email address</span>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        <small class="text-muted">We'll never share your email with anyone else.</small>
+      </label>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="exampleSelect1">Example select</label>
+      <select class="form-control" id="exampleSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="exampleSelect2">Example multiple select</label>
+      <select multiple class="form-control" id="exampleSelect2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="exampleTextarea">Example textarea</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </fieldset>
+    <fieldset class="form-group">
+      <label for="exampleInputFile">File input</label>
+      <input type="file" class="form-control-file" id="exampleInputFile">
+      <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+    </fieldset>
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Option one is this and that&mdash;be sure to include why it's great
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+        Option two can be something else and selecting it will deselect option one
+      </label>
+    </div>
+    <div class="radio disabled">
+      <label>
+        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+        Option three is disabled
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox"> Check me out
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <form onsubmit="return false" oninput="o.value = a.valueAsNumber + b.valueAsNumber">
+    <input name=a type=number step=any> +
+    <input name=b type=number step=any> =
+    <output name=o for="a b"></output>
+  </form>
 </body>
 </html>

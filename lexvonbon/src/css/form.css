@@ -1,0 +1,43 @@
+﻿html,body{height:100%;}
+body { margin:0; border:none; padding:0; background:#ababab; font-family:sans-serif;}
+
+.form {
+  margin:30px auto; border: 1px solid black; border-radius:5px; padding: 20px;
+  width: 750px; background: #eee;
+}
+.fieldset {
+  margin:auto; border: 1px solid black; border-radius:5px; padding:8px; display:flex;
+}
+label:first-of-type:nth-last-child(1) { flex: 1; }
+label:first-of-type:nth-last-child(2),label:first-of-type:nth-last-child(2) ~ label { margin:auto; padding:2px; flex: 0.3333; }
+
+input[type=text], input[type=email],input[type=tel], select {
+  padding:4px; width:100%; line-height:14px;
+}
+textarea {
+  padding:4px; resize:vertical; max-height:300px;
+}
+section {
+  border: 1px solid black; border-radius:5px; padding:4px;
+  display:flex; background-color: lightgrey; flex-direction: column; flex-wrap: wrap; height: 250px;
+}
+h2 { display:block; width:100%; }
+
+.flex-field {
+ border: 1px solid black; border-radius:5px; padding:8px; display:flex;  flex-wrap:wrap;
+} .vert { flex-direction:column; align-content:center; justify-content:center;}
+
+.left {
+  height: 100%;
+}
+.right {
+  flex: .5; justify-content:space-around;
+}
+.align-even {
+  justify-content:space-around;
+  align-content:space-around;
+}
+.align-center { justify-content:center; align-content:center; text-align:center; }
+.align-left { justify-content:flex-start;text-align:left; }
+.align-right { justify-content:flex-end; align-content: flex-end; text-align:right;}
+label { padding: 8px; }
