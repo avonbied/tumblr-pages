@@ -13,7 +13,7 @@ Variables:
   » {block:<Object>}   (for is every <Object>)
   » {if:<Object>}      (If <Object> exists)
   » {select:<Object>}  (Selected <Object> from list)
-  ­» {color:<Object>}   (Color of <Object>)
+  » {color:<Object>}   (Color of <Object>)
   » {font:<Object>}    (Font of <Object>)
   » {src:<Object>}     (Source of <Object>)
   » {stat:<Object>}    (Statistics of <Object>)
@@ -25,11 +25,13 @@ Blog:
 - blog-head
 - blog-meta
 - blog-body
+- blog-side
 - blog-foot
 
   blog-head:
   - blog-title
   - blog-description
+  - blog-banner
   - blog-topic
   - blog-avatar
   - blog-nav
@@ -39,10 +41,14 @@ Blog:
   - og:*
   - twitter:*
   
-
   blog-body:
   - page
-
+  
+  blog-side:
+  - left-bar
+  - right-bar
+  - social-links
+  
   blog-foot:
   - foot-copy
   - blog-date
@@ -75,7 +81,7 @@ Page:
   - sidebar
 
   page-foot:
-  - page-nav
+  - page-nav (pagination)
   - page-view
 
 Post:
