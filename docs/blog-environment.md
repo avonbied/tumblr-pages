@@ -1,11 +1,12 @@
-# Blog Environment
+# Blog Environment #
 
 This is a resource/reference file for blog environment declarations.
 
-## Structures
+
+## Structures ##
 
 **_Blog_**    &mdash; Entire Site  
-**_Page_**    &mdash; Site Page  
+<p style="align: center; color: blue;">Page    &mdash; Site Page</p>  
 **_Search_**  &mdash; Site Query  
 **_Post_**    &mdash; Page Part  
 **_Comment_** &mdash; Post+User-Dependent  
@@ -13,7 +14,7 @@ This is a resource/reference file for blog environment declarations.
 
 
 ## Variables
-  » {block:<Object>}   (for is every <Object>)
+  » {block:\<Object\>}   (for is every \<Object\>)
   » {if:<Object>}      (If <Object> exists)
   » {select:<Object>}  (Selected <Object> from list)
   » {color:<Object>}   (Color of <Object>)
