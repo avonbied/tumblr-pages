@@ -1,4 +1,4 @@
-﻿This is a resource/reference file for blog environment declarations.
+This is a resource/reference file for blog environment declarations.
 
 
 Environments:
