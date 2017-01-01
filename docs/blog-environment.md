@@ -1,15 +1,18 @@
+# Blog Environment
+
 This is a resource/reference file for blog environment declarations.
 
+## Structures
 
-Environments:
-  - Blog    (Entire Site)
-  - Page    (Site Page)
-  - Search  (Site Query)
-  - Post    (Page Part)
-  - Comment (Post+User-Dependent)
-  - Request (Query)
+**_Blog_**    &mdash; Entire Site  
+**_Page_**    &mdash; Site Page  
+**_Search_**  &mdash; Site Query  
+**_Post_**    &mdash; Page Part  
+**_Comment_** &mdash; Post+User-Dependent  
+**_Request_** &mdash; Query
 
-Variables:
+
+## Variables
   » {block:<Object>}   (for is every <Object>)
   » {if:<Object>}      (If <Object> exists)
   » {select:<Object>}  (Selected <Object> from list)
