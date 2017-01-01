@@ -10,7 +10,7 @@ Rank | Item
 2 | Page
 3 | Post
 
-[Next Page](/tumblr-pages/hierarchy.html)
+[Next Page](/tumblr-pages/docs/hierarchy.html)
 
 
 Images
