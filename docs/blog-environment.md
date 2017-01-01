@@ -6,23 +6,24 @@ This is a resource/reference file for blog environment declarations.
 ## Structures ##
 
 **_Blog_**    &mdash; Entire Site  
-<p style="align: center; color: blue;">Page    &mdash; Site Page</p>  
+**_Page_**    &mdash; Site Page  
 **_Search_**  &mdash; Site Query  
 **_Post_**    &mdash; Page Part  
 **_Comment_** &mdash; Post+User-Dependent  
 **_Request_** &mdash; Query
 
 
-## Variables
-  » {block:\<Object\>}   (for is every \<Object\>)
-  » {if:<Object>}      (If <Object> exists)
-  » {select:<Object>}  (Selected <Object> from list)
-  » {color:<Object>}   (Color of <Object>)
-  » {font:<Object>}    (Font of <Object>)
-  » {src:<Object>}     (Source of <Object>)
-  » {stat:<Object>}    (Statistics of <Object>)
-  » {text:<Container>} (Text contained within <Container>)
-  
+## Variables ##
+
+  » {block:\<Object\>}   (for is every \<Object\>)  
+  » {if:<Object>}      (If <Object> exists)  
+  » {select:<Object>}  (Selected <Object> from list)  
+  » {color:<Object>}   (Color of <Object>)  
+  » {font:<Object>}    (Font of <Object>)    
+  » {src:<Object>}     (Source of <Object>)  
+  » {stat:<Object>}    (Statistics of <Object>)  
+  » {text:<Container>} (Text contained within <Container>)  
+
 
 Blog:
 ────────────────
@@ -31,14 +32,22 @@ Blog:
 - blog-body
 - blog-side
 - blog-foot
-
-  blog-head:
-  - blog-title
-  - blog-description
-  - blog-banner
-  - blog-topic
-  - blog-avatar
-  - blog-nav
+ - | - 
+---|---
+blog-head:     
+ - blog-title
+ - blog-description
+ - blog-banner 
+ - blog-topic
+ - blog-avatar
+ - blog-nav        | 
+|
+|
+|
+|
+|
+  
+  
 
   blog-meta:
   - author
