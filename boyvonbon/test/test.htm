@@ -1,5 +1,164 @@
 <!DOCTYPE html>
+
 <html>
-<head></head>
-<body></body>
+<head>
+<meta charset="utf-8" />
+<title>{Title}</title>
+<meta property="og:title" content="{Title}" />
+<meta property="og:site_name" content="{Title}" />
+<meta name="description" content="{MetaDescription}" />
+<meta property="og:description" content="{MetaDescription}" />
+<meta property="og:url" content="{PortraitURL-64}" />
+<meta property="og:type" content="blog" />
+
+<!--------------CSS--------------->
+<link rel="stylesheet" type="text/css" href="http://static.tumblr.com/i6ml3h4/sIso997af/test.css" />
+
+<link rel="stylesheet" href="http://static.tumblr.com/wgijwsy/6lWma2908/normalize.min.css" type="text/css"/>
+<style>
+html, body {height: 100%; width:100%;}
+
+#blog-head { background: url(http://dash.ga.co/assets/gene-bg.png); }
+header a { text-decoration: none; color: #fff; }
+#foot-logo {
+    background: black; opacity:0.1;
+}
+
+
+main { padding:4px; } #content {padding:53px;display: flex; justify-content: space-around; }
+
+.post { 
+  margin:40px auto; border:1px solid black; border-radius:3px; padding:4px;
+  max-width:530px; background:#eeeeee; color:black;
+}
+.post-head {
+   margin:0; border-bottom:1px solid #ccc; padding:0; overflow:hidden; 
+}
+.post-author * { margin: 1px; float:left } .post-author img { height: 16px;} .post-author p { font-size:16px; line-height:16px;}
+.post-title { margin: 2px; clear:both; text-align:center;}
+.post-date { float: right; line-height:16px;}
+.post-content {
+    overflow:hidden; width: 500px;
+}
+.post-foot { margin:0; border-top:1px solid #ccc; padding:0; overflow:hidden; }
+.post-foot > * { margin-left: 8px; padding:3px 4px; display:inline-block; color:#aaa; text-align:center; }
+/*.post-foot #post-date { margin-left:0; float:left; }*/.post-foot #post-notes { float: left; }
+.post-foot a {
+    float: right;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.post-foot a:hover {
+    background-color: #111;
+}
+
+
+
+.post-content {
+
+}
+
+  </style>
+</head>
+<body>
+<header id="blog-head"><a href="{BlogURL}">
+  <img id="blog-avatar" alt="Avatar / &quot;Portrait&quot;" src="{PortraitURL-128}"/>
+  <hgroup>
+    <h1 id="blog-title">{Title}</h1>
+    {block:Description}<h3 id="blog-desc">{Description}</h3>{/block:Description}
+  </hgroup></a>
+  <nav id="blog-nav">
+    <a href="{BlogURL}">Home</a>
+  {block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
+  {block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+  {block:HasPages}{block:Pages}
+    <a href="{URL}">{Label}</a>
+  {/block:Pages}{/block:HasPages}
+    <a href="/archive">Archive</a>
+  </nav>
+  
+</header>
+
+<p id="test"></p>
+<main>
+<div id="content">
+{block:Posts}
+  <article class="post">
+  <header class="post-head">
+    <div class="post-author">
+      <img class="author-pic" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Default-user-image.png" />
+      <p>Author Name</p>
+    </div>
+    <a class="post-date"><time>{TimeAgo}</time></a>
+    <h3 class="post-title">
+    {block:Link}{Name}{/block:Link}{block:Text}{Title}{/block:Text}
+    </h3>
+  </header>
+  <div class="post-content">
+    {block:Text}{Body}{/block:Text}
+
+  </div>
+  <footer class="post-foot">
+
+      {block:NoteCount}<a id="post-notes" href="{PostNotesURL}">{NoteCount}</a>{/block:NoteCount}
+      <a>{LikeButton}</a>
+      <a>{ReblogButton}</a>
+      <a>Share</a>
+
+  </footer> 
+  </article>
+  {/block:Posts}
+  {block:PermalinkPage}
+  <article class="post-page">
+    <header class="post-head">
+    <div class="post-author">
+      <img class="author-pic" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Default-user-image.png" />
+      <p>Author Name</p>
+    </div>
+    <a class="post-date"><time>{TimeAgo}</time></a>
+    <h3 class="post-title">
+    {block:Link}{Name}{/block:Link}{block:Text}{Title}{/block:Text}
+    </h3>
+  </header>
+  <div class="post-content">
+    {block:Text}{Body}{/block:Text}
+
+  </div>
+  <footer class="post-foot">
+    {block:NoteCount}<a id="post-notes" href="{PostNotesURL}">{NoteCount}</a>{/block:NoteCount}
+    <a>{LikeButton}</a>
+    <a>{ReblogButton}</a>
+    <a>Share</a>
+  </footer> 
+  </article>
+  {/block:PermalinkPage}
+</div>
+    {block:Pagination}
+    <div class="pagenav">
+      {block:PreviousPage}<a href="{PreviousPage}">Previous</a>{/block:PreviousPage}
+      {block:NextPage}<a href="{NextPage}">Next</a>{/block:NextPage}
+    </div>
+    {/block:Pagination}
+    <p>{TotalPages} and {CurrentPage}</p>
+</main>
+<footer id="blog-foot">
+<div class="left"><img id="foot-logo" alt="128x128" src="{PortraitURL-128}" /></div>
+  <div id="foot-links">
+    <a><img alt="Facebook" /></a>
+    <a><img alt="Instagram" /></a>
+    <a><img alt="Twitter" /></a>
+    <a><img alt="Google+" /></a>
+  </div>
+  <p id="foot-copy"><small>&copy; Copyright 2016 Lex von Biedenfeld. All Rights Reserved. Powered By Tumblr.</small></p>
+</footer>
+<script>
+    var test = document.getElementById("test");
+    var column = document.getElementsByClassName('column');
+    test.innerHTML = window.screen.availWidth+" "+window.innerWidth+" "+document.documentElement.clientWidth+" "+document.body.scrollWidth+" "+document.documentElement.scrollWidth+" "+document.body.offsetWidth+" "+document.documentElement.offsetWidth;
+    //for (var i in column) {
+    //column.style.width = window.screen.availWidth-16+'px';
+    //}
+</script>
+</body>
 </html>
