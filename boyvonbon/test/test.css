@@ -1,0 +1,50 @@
+html, body {height: 100%;}
+body {margin:0;border:none;padding:0;background:#ababab;color:#eee;font-family:sans-serif;box-sizing:border-box;}
+/*---HEADER---*/
+#blog-head { margin:0; border:1px solid black; box-sizing:border-box;
+  width:100%; overflow:auto; background:rgba(10,10,20,0.7); 
+}
+#blog-avatar {
+  margin:64px; margin-left: 96px; border: 2px solid white;
+  width:128px; height:128px; float:left;
+}
+#blog-head hgroup { margin:64px 10px; border:none; height:130px; display:flex; flex-flow:row wrap; align-content:center;}
+#blog-title { margin: 4px auto; width: 100%; display:block; }
+#blog-desc { margin-top: 5px; margin-bottom:16px; display:block; }
+#blog-nav { margin-top:10px; border:none; padding:0; display:block; clear:both; text-align:center;}
+#blog-nav a {
+  border:none; padding:10px; display:inline-block; text-align:center;
+  min-width: 100px; height:100%;
+} #blog-nav a:hover { background: rgba(5,5,10,0.8); }
+
+/*---MAIN---*/
+main {
+  margin:0; border:none; padding:32px;
+}
+
+#content { display:flex; flex-flow:row wrap; justify-content:center; width:795px; align-items:center; }
+.red {background: red;} .green {background: green;} .blue {background: blue;}
+.block-s { margin: 32px; border: 1px solid black; padding: 32px; }
+.block-m { margin: 64px; border: 1px solid black; padding: 64px; }
+.block-l { margin: 96px; border: 1px solid black; padding: 96px; }
+
+
+
+
+
+
+/*---FOOTER---*/
+#blog-foot { margin:0; border:none; padding:0;
+  width:100%; background:#111; overflow:auto; color: #fff;
+}
+.left {margin:0;border:none;padding:0;float:left;}
+
+#foot-logo {
+  margin:2px; border:1px solid white; border-radius: 10px; padding:0; display:inline-block;
+  float:left;
+}
+#foot-links {margin:25px auto 0; display:flex; justify-content:center; }
+#foot-links a { margin:0 16px; border:1px double white; padding:1px; text-decoration:none;}
+#foot-links img { width:32px; height:32px; }
+#foot-copy { margin:25px auto 0; border:none; padding:1px; display:flex; justify-content:center;}
+#foot-copy {border-top:1px solid #444; }
