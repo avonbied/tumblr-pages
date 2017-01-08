@@ -2,13 +2,14 @@
 
 ## Philosophy ##
 
-## Blog Structure ##
+## Blog Model ##
 
-Rank | Item
------|-----
-1 | Blog
-2 | Page
-3 | Post
+#### Class:
+ 1. Blog
+ 2. Page
+ 3. Post
+ 4. Comment
+ 5. Query
 
 [Next Page](/docs/blog-environment.html)
 
