@@ -1,7 +1,105 @@
 <!DOCTYPE html>
+
 <html>
 <head>
+
+  <title>{TITLE}</title>
+  <link rel="shortcut icon" href="{Favicon}" />
+  <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+
+  <style>
+      *{
+         margin: 0;
+         padding: 0;
+        }
+        body{
+            background: #F5F6F7;
+            color: #000;
+        }
+        #wrap{
+            position: relative;
+            margin: 110px auto;
+            width: 500px;
+            left: 10%;
+        }
+        #content{
+            width: 500px;
+            padding: 10px;
+            background: #FFF;
+            box-shadow: 1px 2px 1px 1px #ccc;
+            margin: 10px;
+        }
+  </style>
+
 </head>
 <body>
+<div id="wrap">{block:Posts}
+  <div id="content">
+  {block:Text}
+    {block:Title}
+    <h3><a href="{Permalink}">{Title}</a></h3>
+    {/block:Title}
+    {Body}
+  {/block:Text}
+
+  {block:Photo}
+    <a href="{Permalink}">
+    <img src="{PhotoURL-500}" alt="{PhotoAlt}" width="100%"></a>
+  {/block:Photo}
+
+  {block:Panorama}
+    {LinkOpenTag}
+    <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+    {LinkCloseTag}
+  {/block:Panorama}
+
+  {block:Photoset}
+    {Photoset-500}
+  {/block:Photoset}
+
+  {block:Quote}
+    <p><b style="font-size: 30px;">"</b>{Quote}<b style="font-size: 30px;">"</b></p>
+    <center>
+      {block:Source} - {Source}{/block:Source}
+    </center>
+  {/block:Quote}
+             
+               {block:Link}
+                <a href="{URL}" {Target}>{Name}</a>
+                {/block:Link}
+                 
+                {block:Chat}
+                  <h3>{Title}</h3>
+                      <ul class="chat">
+                            {block:Lines}
+                                <li>
+                                        {block:Label}
+                                            {Label}
+                                        {/block:Label}
+                                {Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+              {/block:Chat}
+                         
+                {block:Video}
+                     {Video-500}
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                {/block:Video}
+                               
+                {block:Audio}
+                {block:Artist}
+                <p>Artist: {Artist}</p>
+                <p>Song:{block:TrackName}{TrackName}{/block:TrackName}</p>
+                <p>{block:Album}Album: {Album}{/block:Album}</p>
+                {AudioPlayerWhite}
+                {/block:Artist}
+                {block:Caption}{Caption}{/block:Caption}
+                {/block:Audio}
+                </div>
+                {/block:Posts}
+</div>
 </body>
 </html>
