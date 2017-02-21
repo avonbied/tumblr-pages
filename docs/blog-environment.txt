@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head></head>
-  
-<body>
-<h1> Blog Environment </h1>
+# Blog Environment #
 
-<p>This is a resource/reference file for blog environment declarations.</p>
+  This is a resource/reference file for blog environment declarations.
 
-<section>
-  <h2> Structures </h2>
+## Structures ##
 
-**_Blog_**    &mdash; Entire Site  
-**_Page_**    &mdash; Site Page  
-**_Search_**  &mdash; Site Query  
-**_Post_**    &mdash; Page Part  
-**_Comment_** &mdash; Post+User-Dependent  
-**_Request_** &mdash; Query
+**_Blog_**    -  Entire Site
+**_Page_**    -  Site Page
+**_Search_**  -  Site Query
+**_Post_**    -  Page Part
+**_Comment_** -  Post/User-Dependent
+**_Request_** -  Query
 
-</section>
 
-<h2> Variables </h2>
+## Variables ##
 
   » {block:\<Object\>}   (for is every \<Object\>)  
   » {if:<Object>}      (If <Object> exists)  
