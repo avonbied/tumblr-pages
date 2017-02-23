@@ -24,28 +24,24 @@
   » {text:<Container>} (Text contained within <Container>)  
 
 
-Blog:
-────────────────
+## Structure Definition ##
+
+### Blog: ###
+-------------
+
 - blog-head
 - blog-meta
 - blog-body
 - blog-side
 - blog-foot
- - | - 
----|---
+
 blog-head:     
  - blog-title
  - blog-description
- - blog-banner 
+ - blog-banner
  - blog-topic
  - blog-avatar
- - blog-nav        | 
-|
-|
-|
-|
-|
-  
+ - blog-nav
   
 
   blog-meta:
@@ -72,8 +68,8 @@ blog-head:
   - blog-page
   - blog-feed
 
-Page:
-────────────────
+### Page: ###
+-------------
 - page-head
 - page-meta
 - page-body
@@ -96,8 +92,8 @@ Page:
   - page-nav (pagination)
   - page-view
 
-Post:
-────────────────
+### Post: ###
+-------------
 - post-head
 - post-meta
 - post-body
@@ -127,8 +123,8 @@ Post:
   - post-page
   - post-archive
 
-Comment:
-────────────────
+### Comment: ###
+----------------
 - comment-head
 - comment-body
 - comment-foot
@@ -148,8 +144,8 @@ Comment:
   - comment-reblog
   - comment-like
 
-Request:
-────────────────
+### Request: ###
+----------------
 - request-meta
 - request-body
 
@@ -161,8 +157,8 @@ Request:
   request-body:
   - request-content
 
-Search:
-────────────────
+### Search: ###
+---------------
 - search-filter
 - search-input
 
@@ -181,5 +177,3 @@ Twitter - Microblog/Stream Update[RSS]
 Tumblr - 
 Vimeo / Youtube - Video
 
-</body>
-</html>
