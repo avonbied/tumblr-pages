@@ -1,6 +1,19 @@
 <article class="post">
   <header class="post-head"></header>
   <section class="post-body">
+    {block:Audio}
+      {block:AudioEmbed}{AudioEmbed color="white"}{/block:AudioEmbed}
+      {block:Caption}{Caption}{/block:Caption}
+    {/block:Audio}
+    {block:Chat}
+      {block:Title}{Title}{/block:Title}
+      {block:Lines}
+        {block:Label}{Label}{/block:Label}
+        {Line}
+      {/block:Lines}
+    {/block:Chat}
+    {block:Link}{/block:Link}
+    photo[single,panorama,photoset], quote, text, video
     {block:Text}
       {block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
       {block:Body}
