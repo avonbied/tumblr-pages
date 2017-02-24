@@ -23,6 +23,12 @@
       {block:Description}{Description}{/block:Description}
     {/block:Link}
     photo[single,panorama,photoset], quote, text, video
+    {block:Photoset}
+    <figure class="">
+      {Photoset}
+      {block:Caption}<figcaption class="">{Caption}</figcaption>{/block:Caption}
+    </figure>
+    {/block:Photoset}
     {block:Text}
       {block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
       {block:Body}
