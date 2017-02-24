@@ -12,7 +12,16 @@
         {Line}
       {/block:Lines}
     {/block:Chat}
-    {block:Link}{/block:Link}
+    {block:Link}
+    <a {Target} href="{URL}" class="">
+      {block:Thumbnail}<img src="{Thumbnail-HighRes}" alt="" />{/block:Thumbnail}
+      {block:Host}{Host}{/block:Host}
+      {Name} <!--Link Name/Title-->
+      {block:Excerpt}{Excerpt}{/block:Excerpt}
+      {block:Author}{Author}{/block:Author}
+    </a>
+      {block:Description}{Description}{/block:Description}
+    {/block:Link}
     photo[single,panorama,photoset], quote, text, video
     {block:Text}
       {block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
