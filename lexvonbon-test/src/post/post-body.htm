@@ -26,6 +26,17 @@
     {/block:Link}
     
     photo
+    {block:Photo}
+    <figure class="" data-photo-width="{PhotoWidth-HighRes}">
+      <a href="{Permalink}">
+        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" width="{PhotoWidth-HighRes}" height="{PhotoHeight-HighRes}"
+             {block:LivePhoto}data-live-photo="{LivePhotoURL}"
+             data-live-photo-still-image-time="{LivePhotoStillImageTime}"{/block:LivePhoto}>
+      </a>
+      {block:Caption}<figcaption class="caption">{Caption}</figcaption>{/block:Caption}
+    </figure>
+    {/block:Photo}
+
     {block:Panorama}
       {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
       {block:Caption}{Caption}{/block:Caption}
