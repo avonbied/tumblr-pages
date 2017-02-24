@@ -5,6 +5,7 @@
       {block:AudioEmbed}{AudioEmbed color="white"}{/block:AudioEmbed}
       {block:Caption}{Caption}{/block:Caption}
     {/block:Audio}
+    
     {block:Chat}
       {block:Title}{Title}{/block:Title}
       {block:Lines}
@@ -12,6 +13,7 @@
         {Line}
       {/block:Lines}
     {/block:Chat}
+    
     {block:Link}
     <a {Target} href="{URL}" class="">
       {block:Thumbnail}<img src="{Thumbnail-HighRes}" alt="" />{/block:Thumbnail}
@@ -22,13 +24,27 @@
     </a>
       {block:Description}{Description}{/block:Description}
     {/block:Link}
-    photo[single,panorama,photoset], quote, text, video
+    
+    photo
+    {block:Panorama}
+      {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
+      {block:Caption}{Caption}{/block:Caption}
+    {/block:Panorama}
+    
     {block:Photoset}
     <figure class="">
-      {Photoset}
+      {block:Photos}
+        <img src="{PhotoURL-500}"
+            width="{PhotoWidth-500}"height="{PhotoHeight-500}" />
+        {block:Caption}{Caption}{/block:Caption}
+        {block:Exif}<ul>...</ul>{/block:Exif}
+      {/block:Photos}<!--{Photoset}-->
       {block:Caption}<figcaption class="">{Caption}</figcaption>{/block:Caption}
     </figure>
     {/block:Photoset}
+    
+     quote, text, video
+    
     {block:Text}
       {block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
       {block:Body}
