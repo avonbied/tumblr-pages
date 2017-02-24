@@ -1,8 +1,14 @@
 # Blog Environment #
-
-  This is a resource/reference file for blog environment declarations.
+--------------------------------------------------------------
+  This is a resource/reference file for blog environment
+  declarations.
 
 ## Structures ##
+
+  Structures may be displayed in multiple forms but have
+  underlying properties they contain.
+  
+  
 
 **_Blog_**    -  Entire Site
 **_Page_**    -  Site Page
@@ -29,11 +35,13 @@
 ### Blog: ###
 -------------
 
-- blog-head
+Forms:
+- blog-embed
+- blog-page
+- blog-feed
+
 - blog-meta
-- blog-body
 - blog-side
-- blog-foot
 
 blog-head:     
  - blog-title
@@ -64,16 +72,11 @@ blog-head:
   - foot-logo
 
   blog-form:
-  - blog-embed
-  - blog-page
-  - blog-feed
+
 
 ### Page: ###
 -------------
-- page-head
 - page-meta
-- page-body
-- page-foot
 
   page-head:
   - page-title
@@ -94,10 +97,7 @@ blog-head:
 
 ### Post: ###
 -------------
-- post-head
 - post-meta
-- post-body
-- post-foot
 
   post-head:
   - post-title  (present in types: audio,chat,link,photo[photoset],text,video)
@@ -125,9 +125,6 @@ blog-head:
 
 ### Comment: ###
 ----------------
-- comment-head
-- comment-body
-- comment-foot
 
   comment-head:
   - comment-user
@@ -161,7 +158,6 @@ blog-head:
 ---------------
 - search-filter
 - search-input
-
 
 
 Social-Network:
