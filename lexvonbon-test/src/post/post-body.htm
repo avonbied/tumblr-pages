@@ -24,8 +24,7 @@
     </a>
       {block:Description}{Description}{/block:Description}
     {/block:Link}
-    
-    photo
+
     {block:Photo}
     <figure class="" data-photo-width="{PhotoWidth-HighRes}">
       <a href="{Permalink}">
@@ -53,8 +52,11 @@
       {block:Caption}<figcaption class="">{Caption}</figcaption>{/block:Caption}
     </figure>
     {/block:Photoset}
-    
-     quote, text, video
+
+    {block:Quote}
+      <blockquote class="{Length}">{Quote}</blockquote>
+      {block:Source}{Source}{/block:Source}
+    {/block:Quote}
     
     {block:Text}
       {block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
@@ -62,6 +64,17 @@
         {Body}
       {/block:Body}
     {/block:Text}
+    
+    {block:Video}
+    <figure class="post-content {block:Caption}with-caption{/block:Caption}">
+      {Video-700}
+      {block:Caption}
+      <figcaption class="caption">
+        {Caption}
+      </figcaption>
+      {/block:Caption}
+    </figure>
+    {/block:Video}
   </section>
   <footer class="post-foot"></footer>
 </article>
