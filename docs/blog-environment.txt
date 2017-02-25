@@ -7,15 +7,15 @@
 
   Structures may be displayed in multiple forms but have
   underlying properties they contain.
-  
-  
 
-**_Blog_**    -  Entire Site
-**_Page_**    -  Site Page
-**_Search_**  -  Site Query
-**_Post_**    -  Page Part
-**_Comment_** -  Post/User-Dependent
-**_Request_** -  Query
+  The the structures are the following:
+
+  **_Blog_**    -  Entire Site
+  **_Page_**    -  Site Page
+  **_Search_**  -  Site Query
+  **_Post_**    -  Page Part
+  **_Comment_** -  Post/User-Dependent
+  **_Request_** -  Query
 
 
 ## Variables ##
@@ -35,43 +35,38 @@
 ### Blog: ###
 -------------
 
-Forms:
-- blog-embed
-- blog-page
-- blog-feed
+  Forms:
+  - blog-embed
+  - blog-page
+  - blog-feed
 
-- blog-meta
-- blog-side
-
-blog-head:     
- - blog-title
- - blog-description
- - blog-banner
- - blog-topic
- - blog-avatar
- - blog-nav
+  Properties:
+  blog-head:     
+    .blog-title
+    .blog-description
+    .blog-banner
+    .blog-topic
+    .blog-avatar
+    .blog-nav
   
-
   blog-meta:
-  - author
-  - og:*
-  - twitter:*
+    .blog-author
+    .og:*
+    .twitter:*
   
   blog-body:
-  - page
+    .page
   
   blog-side:
-  - left-bar
-  - right-bar
-  - social-links
+    .left-bar
+    .right-bar
+    .social-links
   
   blog-foot:
-  - foot-copy
-  - blog-date
-  - foot-links
-  - foot-logo
-
-  blog-form:
+    .blog-copy
+    .blog-date
+    .blog-links
+    .blog-logo
 
 
 ### Page: ###
@@ -95,9 +90,14 @@ blog-head:
   - page-nav (pagination)
   - page-view
 
+
 ### Post: ###
 -------------
-- post-meta
+
+Form:
+- post-embed
+- post-page
+- post-archive
 
   post-head:
   - post-title  (present in types: audio,chat,link,photo[photoset],text,video)
@@ -118,10 +118,6 @@ blog-head:
   - post-like
   - post-note
 
-  post-form:
-  - post-embed
-  - post-page
-  - post-archive
 
 ### Comment: ###
 ----------------
@@ -141,6 +137,7 @@ blog-head:
   - comment-reblog
   - comment-like
 
+
 ### Request: ###
 ----------------
 - request-meta
@@ -153,6 +150,7 @@ blog-head:
 
   request-body:
   - request-content
+
 
 ### Search: ###
 ---------------
