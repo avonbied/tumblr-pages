@@ -3,12 +3,14 @@
 <head></head>
 <body>
 
-<header id="blog-head"><!--<a href="{BlogURL}">-->
-  <img id="blog-avatar" alt="Avatar / &quot;Portrait&quot;" href="{PortraitURL-128}"/>
-  <hgroup>
+<header id="blog-head">
+  <hgroup id="blog-banner">
+    <!--<a href="{BlogURL}">-->
+    <img id="blog-avatar" alt="Avatar / &quot;Portrait&quot;" href="{PortraitURL-128}"/>
     <h1 id="blog-title">{Title}</h1>
     {block:ifDescription}<h3 id="blog-desc">{Description}</h3>{/block:ifDescription}
-  </hgroup><!--</a>-->
+    <!--</a>-->
+  </hgroup>
   <nav id="blog-nav">
     <a href="{BlogURL}">Home</a>
     {block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
@@ -19,7 +21,6 @@
     <a href="/archive">Archive</a>
   </nav>
 </header>
-  
   
 <main></main>
 <footer id="blog-foot"></footer>
